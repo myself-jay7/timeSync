@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Sync</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="centered-heading">Time Sync</h1>
+    </header>
+    <main>
+      <div class="components">
+        <div class="section-wrapper">
+            <section class="scheduled-sites">
+                <h2 class="centered-heading">Scheduled Sites</h2>
+                <table id="scheduled-sites-table">
+                    <thead>
+                        <tr>
+                            <th class="table-head">Site Name</th>
+                            <th class="table-head">URL</th>
+                            <th class="table-head">Time</th>
+                            <th class="table-head">Date</th>
+                            <th class="table-head">Repeat</th>
+                            <th class="table-head">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduled-sites-tbody"></tbody>
+                </table>
+            </section>
+            <button id="add-scheduled-site-btn" class="add-btn">+</button>
+        </div>
+    
+        <div class="section-wrapper">
+            <section class="tasks">
+                <h2 class="centered-heading">Tasks</h2>
+                <table id="tasks-table">
+                    <thead>
+                        <tr>
+                            <th class="table-head">Task Description</th>
+                            <th class="table-head">Time</th>
+                            <th class="table-head">Date</th>
+                            <th class="table-head">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasks-tbody"></tbody>
+                </table>
+            </section>
+            <button id="add-task-btn" class="add-btn">+</button>
+        </div>
+        
+        <section class="usage-section">
+            <h2 class="centered-heading">Site Usage</h2>
+            <table id="usage-table">
+                <thead>
+                    <tr>
+                        <th class="table-head">Site Name</th>
+                        <th class="table-head">Limit (mins)</th>
+                        <th class="table-head">Time Left (mins)</th>
+                        <th class="table-head">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usage-tbody"></tbody>
+            </table>
+            <div class="button-container">
+                <button id="set-limit-btn" class="set-limit-btn">Set Limit</button>
+            </div>
+        </section>
+        
+        <button id="check-usage-btn" class="check-usage-btn" style="display: block; margin: 20px auto;">Usage</button>
+    </div>
+    
+    </main>
+  </div>
+
+  <div id="add-scheduled-site-modal" class="modal">
+    <div class="modal-content">
+      <h2>Add Scheduled Site</h2>
+      <form id="add-scheduled-site-form">
+        <div>
+          <label for="site-name">Site Name:</label>
+          <input type="text" id="site-name" required>
+        </div>
+        <div>
+          <label for="site-url">Site URL:</label>
+          <input type="url" id="site-url" required>
+        </div>
+  
+        <div>
+          <label for="site-time">Time:</label>
+          <input type="time" id="site-time" required>
+        </div>
+            <div>
+          <label for="site-date">Date:</label>
+          <input type="date" id="site-date" required>
+        </div>
+  
+        <label for="site-repetition">Repetition:</label>
+        <select id="site-repetition" required>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="once">Once</option>
+        </select>
+  
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <div id="add-task-modal" class="modal">
+    <div class="modal-content">
+      <h2>Add Task</h2>
+      <form id="add-task-form">
+        <label for="task-description">Task Description:</label>
+        <input type="text" id="task-description" required>
+        <label for="task-time">Time:</label>
+        <input type="time" id="task-time" required>
+        <label for="task-date">Date:</label>
+        <input type="date" id="task-date" required>
+        <button type="submit" class="btn btn-primary" align="center">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
